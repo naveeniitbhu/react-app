@@ -1,7 +1,7 @@
 import { clearPageTitle, setPageTitle } from './actions';
 import { Action } from 'app-types';
 
-const PAGE_DEFAULT_TITLE = 'AfterAcademy | OpenSource Project';
+const PAGE_DEFAULT_TITLE = `${process.env.APPNAMECAPS}`;
 
 export type State = {
   currentPageTitle: string | null;

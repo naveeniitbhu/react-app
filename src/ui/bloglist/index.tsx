@@ -21,6 +21,8 @@ import { Link } from 'react-router-dom';
 import { convertToReadableDate } from '@utils/appUtils';
 import FirstLetter from '@ui/common/firstletter';
 
+const appNameCaps = process.env.APPNAMECAPS;
+
 export default function BlogList(): ReactElement {
   const classes = useStyles();
   const { data, isFetching, message } = useStateSelector((state) => state.blogListState);
@@ -36,7 +38,7 @@ export default function BlogList(): ReactElement {
     <div className={classes.cover}>
       <div className={classes.coverBox}>
         <Typography component="h1" variant="h1" align="center" className={classes.coverTitle}>
-          AfterAcademy
+          {appNameCaps}
         </Typography>
         <Typography component="h2" variant="h3" align="center" className={classes.coverSubtitle}>
           Open Source Blogs

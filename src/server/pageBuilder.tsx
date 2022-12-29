@@ -16,6 +16,7 @@ import thunk from 'redux-thunk';
 import { getBaseUrl } from './utils';
 
 const isDev = process.env.NODE_ENV === 'development';
+const appNameCaps = process.env.APPNAMECAPS;
 
 export const getProtocol = (req: PublicRequest): string => {
   // @ts-ignore
@@ -40,7 +41,7 @@ export type PageInfo = {
 export default function pageBuilder(
   req: PublicRequest,
   pageinfo: PageInfo = {
-    title: 'AfterAcademy | React Project',
+    title: `${appNameCaps} | React Project`,
     description: 'This is the sample project to learn and implement React app.',
   },
   currentState: Partial<RootState> = {},

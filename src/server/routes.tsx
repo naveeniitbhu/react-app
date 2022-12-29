@@ -6,6 +6,7 @@ import { defaultState as blogListDefaultState } from '@ui/blogpage/reducer';
 import { Blog } from 'app-types';
 
 const router = express.Router();
+const appNameCaps = process.env.APPNAMECAPS;
 
 router.get('/blog/:endpoint', sendBlogPage);
 router.get('/blogs', sendBlogsPage);
@@ -53,9 +54,8 @@ async function sendBlogsPage(req: PublicRequest, res: Response, next: NextFuncti
       pageBuilder(
         req,
         {
-          title: 'AfterAcademy | Open Source Blogs',
-          description:
-            'AfterAcademy open source blogs and articles with latest developments and trends',
+          title: `${appNameCaps} | Open Source Blogs`,
+          description: `${appNameCaps} open source blogs and articles with latest developments and trends`,
         },
         {
           blogListState: {

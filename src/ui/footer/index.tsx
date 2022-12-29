@@ -4,6 +4,8 @@ import useStyles from './style';
 import { Divider, Link, Grid, Typography } from '@material-ui/core';
 import { Copyright } from '@material-ui/icons';
 
+const appNameCaps: string = process.env.APPNAMECAPS || '';
+
 export default function Component(): ReactElement {
   const classes = useStyles();
 
@@ -40,7 +42,7 @@ export default function Component(): ReactElement {
           <Typography component="p" variant="h6">
             About Us
           </Typography>
-          <ExternalLink href="https://www.facebook.com/afteracademy" name="AfterAcademy" />
+          <ExternalLink href="https://www.facebook.com/onepercentcoder" name={appNameCaps} />
           <br />
           <ExternalLink href="https://www.facebook.com/mindorks.nextgen" name="MindOrks" />
           <br />

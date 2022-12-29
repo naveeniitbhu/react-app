@@ -44,6 +44,7 @@ import { Roles } from '@ui/auth/reducer';
 import FirstLetter from '@ui/common/firstletter';
 
 const afterAcademyLogo = importer('./assets/afteracademy-logo.svg');
+const appNameCaps = process.env.APPNAMECAPS
 
 export default function Header(): ReactElement {
   const classes = useStyles();
@@ -299,7 +300,7 @@ export default function Header(): ReactElement {
             to={'/'}
           />
           <Typography variant="h6" className={classes.brandName}>
-            AfterAcademy React
+            {appNameCaps} React
           </Typography>
           <div className={classes.sectionDesktop}>
             {[

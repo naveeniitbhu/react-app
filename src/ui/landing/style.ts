@@ -5,9 +5,9 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     flexGrow: 1,
   },
   aboutUsSection: {
-    paddingTop: spacing(6),
     paddingBottom: spacing(10),
     background: palette.secondary.dark,
+    backgroundColor: 'green'
   },
   sectionHeading: {
     marginBottom: spacing(6),
@@ -37,6 +37,18 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     paddingTop: spacing(6),
     paddingBottom: spacing(10),
   },
+  wrapper: {
+    backgroundImage: "url('/assets/home-bg.jpg')",
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    height: '1000px',
+    // backgroundColor: 'orange',
+    // width: '100%'
+  },
+  descriptionPrimary: {
+    fontSize: 32
+  }
 }));
 
 export default useStyles;

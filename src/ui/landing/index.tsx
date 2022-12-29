@@ -30,12 +30,15 @@ const AboutUs = () => {
   const classes = useStyles();
   return (
     <Grid className={classes.aboutUsSection} container justify="center" alignItems="center">
-      <Grid item xs={11} sm={11} md={11}>
+      <Grid item xs={12} sm={12} md={12} className={classes.wrapper}>
         <Typography className={classes.sectionHeading} align="center" variant="h4" component="h2">
-          About Us
+          Be a 1% Coder
+        </Typography>
+        <Typography className={classes.descriptionPrimary} align="center" variant="h4" component="h2">
+          Crack Big MNC And Product Based Startups With This Bundles
         </Typography>
         <Grid container spacing={4} justify="center" alignItems="stretch">
-          <Grid item xs={12} sm={6} md={5}>
+          {/* <Grid item xs={12} sm={6} md={5}>
             <InfoCard
               imgUrl={afteracademyLogo}
               href="https://afteracademy.com"
@@ -52,7 +55,7 @@ const AboutUs = () => {
               description="A platform to learn Android, Flutter, and React Native development. Stay ahead with lateset mobile tech."
               subtitle="Learn from the best"
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </Grid>
@@ -142,7 +145,7 @@ const ReasourceCard = ({
 
 const LearningResources = () => {
   const classes = useStyles();
-  const blog = importer('./assets/afteracademy-blog.jpg');
+  const blog = importer('./assets/home-bg.jpg');
   const youtube = importer('./assets/afteracademy-youtube.jpg');
   const opensource = importer('./assets/mindorks-opensource.jpg');
   const mBlog = importer('./assets/mindorks-blog.jpg');
