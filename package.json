@@ -1,7 +1,7 @@
 {
   "name": "react-app-architecture",
   "version": "1.0.0",
-  "description": "React.js Web Application Architecture - Learn to build a complete website for a blogging platform like Medium, FreeCodeCamp, MindOrks etc using React.js, Redux, MaterialUI, and Webpack. OpenSource project by AfterAcademy",
+  "description": "React.js Web Application Architecture - Learn to build a complete website for a blogging platform like Medium, FreeCodeCamp, etc using React.js, Redux, MaterialUI, and Webpack.",
   "main": "index.js",
   "scripts": {
     "start": "npm run build && npm run serve",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/afteracademy/react-app-architecture.git"
+    "url": "git+https://github.com/onepercentcoder/react-app-architecture.git"
   },
-  "author": "AfterAcademy",
+  "author": "OnePercentCoder",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/afteracademy/react-app-architecture/issues"
+    "url": "https://github.com/interviewscracktips/react-app-architecture/issues"
   },
-  "homepage": "https://github.com/afteracademy/react-app-architecture#readme",
+  "homepage": "https://github.com/interviewscracktips/react-app-architecture#readme",
   "dependencies": {
     "@date-io/core": "^2.6.0",
     "@date-io/moment": "^2.6.0",
