@@ -4,34 +4,94 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
   root: {
     flexGrow: 1,
   },
+  ctaCardsWrapper: {
+    marginBottom: spacing(2),
+    marginTop: spacing(3),
+    // backgroundColor: 'green',
+  },
+  ctaCard: {
+    height: '100%',
+    [breakpoints.between('xs', 'sm')]:  {},
+    background: palette.secondary.light,
+    backgroundColor: 'white',
+  },
+  ctaCardAction: {
+    backgroundColor: 'red',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  ctaButton: {
+    fontSize: '40px',
+    fontFamily: 'Oswald, sans-serif',
+    width: '100%',
+    height: '100%',
+    color: 'white',
+    backgroundColor: 'red',
+    textAlign: 'center',
+    [breakpoints.between('xs', 'sm')]: {
+      fontSize: '25px',
+    },
+  },
+  cardAction: {
+    backgroundColor: 'red',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   aboutUsSection: {
-    paddingBottom: spacing(10),
     background: palette.secondary.dark,
-    backgroundColor: 'green'
+    backgroundColor: 'yellow',
   },
   sectionHeading: {
-    marginBottom: spacing(6),
-    marginTop: spacing(2),
+    marginBottom: spacing(2),
+    marginTop: spacing(3),
+    color: 'darkred',
+    fontWeight: 'bold',
+    [breakpoints.between('xs', 'sm')]: {
+      fontSize: '20px'
+    },
+  },
+  descriptionPrimary: {
+    fontSize: 55,
+    fontWeight: 'bold',
+    fontFamily: 'Oswald, sans-serif',
+    [breakpoints.between('xs', 'sm')]:  {
+      fontSize: '35px'
+    },
   },
   infoCard: {
     height: '100%',
-    [breakpoints.down('sm')]: {
+    [breakpoints.between('xs', 'sm')]:  {
       padding: spacing(2),
     },
     background: palette.secondary.light,
+    backgroundColor: 'blue',
   },
   card: {
     height: '100%',
   },
-  cardAction: {
-    paddingBottom: spacing(3),
+
+  ctaDescription: {
+    backgroundColor: 'orange',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textTransform: 'uppercase',
+  },
+  ctaDescription2: {
+    backgroundColor: 'yellow',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: '0px',
   },
   avatar: {
     width: 60,
     height: 60,
   },
   button: {
-    marginLeft: spacing(2),
+    // marginLeft: spacing(2),
   },
   resourcesSection: {
     paddingTop: spacing(6),
@@ -46,9 +106,14 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     // backgroundColor: 'orange',
     // width: '100%'
   },
-  descriptionPrimary: {
-    fontSize: 32
-  }
+  MuiCardContent: {
+    root: {
+      padding: 0,
+      '&:last-child': {
+        paddingBottom: 0,
+      },
+    },
+  },
 }));
 
 export default useStyles;

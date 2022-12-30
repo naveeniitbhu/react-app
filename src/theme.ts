@@ -48,6 +48,7 @@ const theme = createMuiTheme({
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
+      'Oswald',
     ].join(','),
   },
   shadows: [

@@ -25,8 +25,8 @@ export default function Landing(): ReactElement {
 }
 
 const AboutUs = () => {
-  const afteracademyLogo = importer('@ui/header/assets/afteracademy-logo.svg');
-  const mindorksLogo = importer('./assets/mindorks-logo.svg');
+  // const afteracademyLogo = importer('@ui/header/assets/afteracademy-logo.svg');
+  // const mindorksLogo = importer('./assets/mindorks-logo.svg');
   const classes = useStyles();
   return (
     <Grid className={classes.aboutUsSection} container justify="center" alignItems="center">
@@ -34,31 +34,45 @@ const AboutUs = () => {
         <Typography className={classes.sectionHeading} align="center" variant="h4" component="h2">
           Be a 1% Coder
         </Typography>
-        <Typography className={classes.descriptionPrimary} align="center" variant="h4" component="h2">
-          Crack Big MNC And Product Based Startups With This Bundles
+        <Typography
+          className={classes.descriptionPrimary}
+          align="center"
+          variant="h4"
+          component="h2"
+        >
+          Crack Big MNC And Product Based Startups
         </Typography>
-        <Grid container spacing={4} justify="center" alignItems="stretch">
-          {/* <Grid item xs={12} sm={6} md={5}>
-            <InfoCard
-              imgUrl={afteracademyLogo}
-              href="https://afteracademy.com"
-              title="AfterAcademy"
-              description="A platform to learn programming, data structure & algorithms, webapps & backend development."
-              subtitle="Learn by doing"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={5}>
-            <InfoCard
-              imgUrl={mindorksLogo}
-              href="https://mindorks.com"
-              title="MindOrks"
-              description="A platform to learn Android, Flutter, and React Native development. Stay ahead with lateset mobile tech."
-              subtitle="Learn from the best"
-            />
-          </Grid> */}
+        <Typography
+          className={classes.descriptionPrimary}
+          align="center"
+          variant="h4"
+          component="h2"
+        >
+          With This Bundles
+        </Typography>
+        <Grid container justify="center" alignItems="stretch" className={classes.ctaCardsWrapper}>
+          <CtaCard href="https://afteracademy.com" action="Buy This Pack Now At &#8377; 249" />
         </Grid>
       </Grid>
     </Grid>
+  );
+};
+
+const CtaCard = ({ href, action = 'Learn More' }: { href: string; action?: string }) => {
+  const classes = useStyles();
+  return (
+    <Card className={classes.ctaCard} raised={true}>
+      <Button
+        className={classes.ctaButton}
+        variant="contained"
+        component="a"
+        size="large"
+        color="primary"
+        href={href}
+      >
+        {action}
+      </Button>
+    </Card>
   );
 };
 
