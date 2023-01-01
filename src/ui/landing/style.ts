@@ -7,11 +7,13 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
   ctaCardsWrapper: {
     marginBottom: spacing(2),
     marginTop: spacing(3),
-    // backgroundColor: 'green',
+    [breakpoints.down('sm')]: {
+      marginBottom: spacing(1),
+    },
   },
   ctaCard: {
     height: '100%',
-    [breakpoints.between('xs', 'sm')]:  {},
+    [breakpoints.between('xs', 'sm')]: {},
     background: palette.secondary.light,
     backgroundColor: 'white',
   },
@@ -33,8 +35,27 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
       fontSize: '25px',
     },
   },
+  ctaButtonBundle: {
+    fontSize: '20px',
+    fontFamily: 'Oswald, sans-serif',
+    color: 'white',
+    backgroundColor: '#D72988',
+    textAlign: 'center',
+    [breakpoints.between('xs', 'sm')]: {
+      fontSize: '13px',
+    },
+  },
+  titleBundle: {
+    fontSize: '22px',
+    color: 'orange',
+    // color: '#D72988',
+    fontWeight: 'bold',
+    fontFamily: 'Oswald, sans-serif',
+    [breakpoints.down('sm')]: {
+      fontSize: '15px',
+    },
+  },
   cardAction: {
-    backgroundColor: 'red',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -43,35 +64,74 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     background: palette.secondary.dark,
     backgroundColor: 'yellow',
   },
+  cardWrapper: {
+    marginTop: spacing(4),
+    [breakpoints.down('sm')]: {
+      paddingLeft: spacing(1),
+      paddingRight: spacing(1),
+      marginTop: spacing(0),
+    },
+  },
+
   sectionHeading: {
     marginBottom: spacing(2),
     marginTop: spacing(3),
     color: 'darkred',
     fontWeight: 'bold',
     [breakpoints.between('xs', 'sm')]: {
-      fontSize: '20px'
+      fontSize: '20px',
     },
   },
   descriptionPrimary: {
     fontSize: 55,
     fontWeight: 'bold',
     fontFamily: 'Oswald, sans-serif',
-    [breakpoints.between('xs', 'sm')]:  {
-      fontSize: '35px'
+    [breakpoints.between('xs', 'sm')]: {
+      fontSize: '35px',
     },
+  },
+  bundleCard: {
+    height: '100%',
+    [breakpoints.between('xs', 'sm')]: {
+      paddingLeft: spacing(2),
+      paddingRight: spacing(2),
+    },
+    background: 'rgba(18, 18, 18, 0.7)',
+  },
+  getJobCard: {
+    height: '100%',
+    [breakpoints.between('xs', 'sm')]: {
+      padding: spacing(2),
+    },
+    background: 'rgba(18, 18, 18, 0.7)',
   },
   infoCard: {
     height: '100%',
-    [breakpoints.between('xs', 'sm')]:  {
+    [breakpoints.between('xs', 'sm')]: {
       padding: spacing(2),
     },
     background: palette.secondary.light,
-    backgroundColor: 'blue',
   },
   card: {
     height: '100%',
   },
-
+  checkTopicWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    paddingBottom: '10px',
+    paddingLeft: '5px',
+  },
+  checkCircle: {
+    color: '#45EA18',
+  },
+  topic: {
+    paddingLeft: '10px',
+  },
+  headGetJob: {
+    paddingLeft: '10px',
+    textTransform: 'capitalize',
+    fontWeight: 'bold',
+  },
   ctaDescription: {
     backgroundColor: 'orange',
     display: 'flex',
@@ -87,12 +147,16 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     paddingBottom: '0px',
   },
   avatar: {
-    width: 60,
-    height: 60,
+    '& .MuiAvatar-img': {
+      objectFit: 'contain',
+    },
   },
-  button: {
-    // marginLeft: spacing(2),
+  avatarWork: {
+    '& .MuiAvatar-img': {
+      objectFit: 'contain',
+    },
   },
+  button: {},
   resourcesSection: {
     paddingTop: spacing(6),
     paddingBottom: spacing(10),
@@ -102,9 +166,7 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
-    height: '1000px',
-    // backgroundColor: 'orange',
-    // width: '100%'
+    minHeight: '1000px',
   },
   MuiCardContent: {
     root: {
@@ -114,6 +176,17 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
       },
     },
   },
+  getJobBundleHeader: {
+    [breakpoints.down('sm')]: {
+      paddingBottom: '0px',
+    },
+  },
+  bundletopicscolumn: {
+    [breakpoints.down('sm')]: {
+      paddingBottom: '0px',
+      paddingTop: '0px',
+    },
+  }
 }));
 
 export default useStyles;
