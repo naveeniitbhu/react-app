@@ -54,16 +54,10 @@ const AboutUs = () => {
         <Grid container justify="center" alignItems="stretch" className={classes.ctaCardsWrapper}>
           <CtaCard href="https://afteracademy.com" action="Buy This Pack Now At &#8377; 199" />
         </Grid>
-        <Grid
-          container
-          spacing={3}
-          justify="center"
-          alignItems="center"
-          className={classes.cardWrapper}
-        >
-          <Grid item xs={12} sm={12} md={5}>
+        <Grid container justify="center" alignItems="center" className={classes.cardWrapper}>
+          <Grid item xs={12} sm={12} md={12} lg={6} className={classes.singleCardGridWrapper}>
             <Grid container justify="center">
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <BundleCard
                   imgUrl={reactIconLogo}
                   href="https://afteracademy.com"
@@ -73,9 +67,9 @@ const AboutUs = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={12} md={5}>
+          <Grid item xs={12} sm={12} md={12} lg={6} className={classes.singleCardGridWrapper}>
             <Grid container justify="center">
-              <Grid item>
+              <Grid item className={classes.gridItem}>
                 <GetJobCard
                   imgUrl={workIcon}
                   href="https://afteracademy.com"
@@ -223,10 +217,10 @@ const GetJobCard = ({
 }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.getJobCard} raised={true}>
+    <Card className={classes.bundleCard} raised={true}>
       <CardHeader
         className={classes.getJobBundleHeader}
-        avatar={<Avatar className={classes.avatarWork} src={imgUrl} />}
+        avatar={<Avatar className={classes.avatar} src={imgUrl} />}
         title={
           <Typography variant="subtitle1" component="p" className={classes.titleBundle}>
             {title}
@@ -241,32 +235,37 @@ const GetJobCard = ({
             </Typography>
           </Grid>
         </Grid>
-        <Grid container spacing={4} justify="flex-start" alignItems="center">
-          <Grid item xs={6} sm={6} md={6}>
+        <Grid
+          container
+          justify="center"
+          alignItems="stretch"
+          className={classes.bundletopicscolumn}
+        >
+          <Grid item xs={12} sm={6} md={6}>
             <div className={classes.checkTopicWrapper}>
               <CheckCircleOutlineIcon className={classes.checkCircle} />
               <Typography variant="subtitle1" component="p" className={classes.topic}>
-                1-on-1 personalization
+                Javascript Q/A Bundle
               </Typography>
             </div>
             <div className={classes.checkTopicWrapper}>
               <CheckCircleOutlineIcon className={classes.checkCircle} />
               <Typography variant="subtitle1" component="p" className={classes.topic}>
-                3 - 6 months program
+                ReactJS Q/A Bundle
               </Typography>
             </div>
           </Grid>
-          <Grid item xs={6} sm={6} md={6}>
+          <Grid item xs={12} sm={6} md={6}>
             <div className={classes.checkTopicWrapper}>
               <CheckCircleOutlineIcon className={classes.checkCircle} />
               <Typography variant="subtitle1" component="p" className={classes.topic}>
-                Learn Anywhere and Anytime
+                HTML & CSS Q/A Bundle
               </Typography>
             </div>
             <div className={classes.checkTopicWrapper}>
               <CheckCircleOutlineIcon className={classes.checkCircle} />
               <Typography variant="subtitle1" component="p" className={classes.topic}>
-                No Payment Till Hired
+                Webpack Q/A Bundle
               </Typography>
             </div>
           </Grid>
@@ -282,12 +281,132 @@ const GetJobCard = ({
           href={href}
           target="_blank"
         >
-          {action}&nbsp;&nbsp;&#8594;
+          {action}
         </Button>
       </CardActions>
     </Card>
   );
 };
+
+// const GetJobCardOld = ({
+//   imgUrl,
+//   href,
+//   title,
+//   action = 'Learn More',
+// }: {
+//   imgUrl: string;
+//   href: string;
+//   title: string;
+//   action?: string;
+// }) => {
+//   const classes = useStyles();
+//   return (
+//     <Card className={classes.getJobCard} raised={true}>
+//       <CardHeader
+//         className={classes.getJobBundleHeader}
+//         avatar={<Avatar className={classes.avatarWork} src={imgUrl} />}
+//         title={
+//           <Typography variant="subtitle1" component="p" className={classes.titleBundle}>
+//             {title}
+//           </Typography>
+//         }
+//       />
+//       <CardContent>
+//         <Grid container spacing={4} justify="flex-start" alignItems="center">
+//           <Grid item xs={12} sm={12} md={12}>
+//             <Typography variant="subtitle1" component="p" className={classes.headGetJob}>
+//               Software engineers like you join my mentorship program to get their dream Job.
+//             </Typography>
+//           </Grid>
+//         </Grid>
+//         <Grid
+//           container
+//           justify="center"
+//           alignItems="stretch"
+//           className={classes.bundletopicscolumn}
+//         >
+//           <Grid item xs={12} sm={6} md={6}>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 1-on-1 personalization
+//               </Typography>
+//             </div>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 3 - 6 months program
+//               </Typography>
+//             </div>
+//           </Grid>
+//           <Grid item xs={12} sm={6} md={6}>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 Learn Anywhere and Anytime
+//               </Typography>
+//             </div>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 No Payment Till Hired
+//               </Typography>
+//             </div>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 No Payment Till Hired
+//               </Typography>
+//             </div>
+//           </Grid>
+//         </Grid>
+//         {/* <Grid container spacing={4} justify="flex-start" alignItems="center">
+//           <Grid item xs={12} sm={6} md={6}>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 1-on-1 personalization
+//               </Typography>
+//             </div>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 3 - 6 months program
+//               </Typography>
+//             </div>
+//           </Grid>
+//           <Grid item xs={12} sm={6} md={6}>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 Learn Anywhere and Anytime
+//               </Typography>
+//             </div>
+//             <div className={classes.checkTopicWrapper}>
+//               <CheckCircleOutlineIcon className={classes.checkCircle} />
+//               <Typography variant="subtitle1" component="p" className={classes.topic}>
+//                 No Payment Till Hired
+//               </Typography>
+//             </div>
+//           </Grid>
+//         </Grid> */}
+//       </CardContent>
+//       <CardActions className={classes.cardAction}>
+//         <Button
+//           className={classes.ctaButtonBundle}
+//           variant="contained"
+//           component="a"
+//           size="large"
+//           color="primary"
+//           href={href}
+//           target="_blank"
+//         >
+//           {action}&nbsp;&nbsp;&#8594;
+//         </Button>
+//       </CardActions>
+//     </Card>
+//   );
+// };
 
 const InfoCard = ({
   imgUrl,

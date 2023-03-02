@@ -65,6 +65,8 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     backgroundColor: 'yellow',
   },
   cardWrapper: {
+    paddingLeft: '30px',
+    paddingRight: '30px',
     marginTop: spacing(4),
     [breakpoints.down('sm')]: {
       paddingLeft: spacing(1),
@@ -72,7 +74,9 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
       marginTop: spacing(0),
     },
   },
-
+  singleCardGridWrapper: {
+    marginBottom: '30px',
+  },
   sectionHeading: {
     marginBottom: spacing(2),
     marginTop: spacing(3),
@@ -90,7 +94,22 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
       fontSize: '35px',
     },
   },
+  gridItem: {
+    width: '100%',
+  },
   bundleCard: {
+    width: '600px',
+    height: '350px',
+    [breakpoints.between('xs', 'sm')]: {
+      paddingLeft: spacing(2),
+      paddingRight: spacing(2),
+      width: '100%',
+      height: '100%',
+    },
+    background: 'rgba(18, 18, 18, 0.7)',
+  },
+  bundleCard2: {
+    width: '550px',
     height: '100%',
     [breakpoints.between('xs', 'sm')]: {
       paddingLeft: spacing(2),
@@ -128,6 +147,7 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     paddingLeft: '10px',
   },
   headGetJob: {
+    paddingBottom: '20px',
     paddingLeft: '10px',
     textTransform: 'capitalize',
     fontWeight: 'bold',
@@ -140,7 +160,6 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
     textTransform: 'uppercase',
   },
   ctaDescription2: {
-    backgroundColor: 'yellow',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -186,7 +205,7 @@ const useStyles = makeStyles(({ palette, spacing, breakpoints }: Theme) => ({
       paddingBottom: '0px',
       paddingTop: '0px',
     },
-  }
+  },
 }));
 
 export default useStyles;
