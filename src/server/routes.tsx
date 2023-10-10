@@ -8,9 +8,41 @@ import { Blog } from 'app-types';
 const router = express.Router();
 const appNameCaps = process.env.APPNAMECAPS;
 
+// router.get('/payments', sendBlogPage);
 router.get('/blog/:endpoint', sendBlogPage);
 router.get('/blogs', sendBlogsPage);
 router.get('*', sendPage);
+
+async function sendPaymentsPage(req: PublicRequest, res: Response) {
+  try {
+    const response = await publicRequest<null, Blog>({
+      url: 'blog/url',
+      method: 'GET',
+      params: {
+        endpoint: req.params.endpoint,
+      },
+    });
+    if (!response.data) throw new Error('Not Found');
+    res.send(
+      pageBuilder(
+        req,
+        {
+          title: response.data.title,
+          description: response.data.description,
+        },
+        {
+          blogState: {
+            ...blogListDefaultState,
+            isFetching: false,
+            data: response.data,
+          },
+        },
+      ),
+    );
+  } catch (e) {
+    sendNotFoundPage(res);
+  }
+}
 
 async function sendBlogPage(req: PublicRequest, res: Response) {
   try {

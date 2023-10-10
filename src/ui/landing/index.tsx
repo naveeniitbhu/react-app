@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import importer from '@utils/importer';
 import {
   Typography,
@@ -14,6 +14,9 @@ import {
 } from '@material-ui/core';
 import useStyles from './style';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { useStateSelector } from '@core/reducers';
+import AuthDialog from '@ui/auth';
+import { useHistory } from 'react-router-dom';
 
 export default function Landing(): ReactElement {
   const classes = useStyles();
@@ -29,69 +32,92 @@ const AboutUs = () => {
   const reactIconLogo = importer('./assets/react-icon.svg');
   const workIcon = importer('./assets/work1.png');
   const classes = useStyles();
+  const [openAuthDialog, setOpenAuthDialog] = useState<boolean>(false);
+  const { isLoggedIn, data: authData } = useStateSelector(({ authState }) => authState);
+
+  const history = useHistory();
+
+  const handleBuyClick = () => {
+    history.push('/payments');
+    if (isLoggedIn) {
+    } else {
+      setOpenAuthDialog(true);
+    }
+  };
   return (
-    <Grid className={classes.aboutUsSection} container justify="center" alignItems="center">
-      <Grid item xs={12} sm={12} md={12} className={classes.wrapper}>
-        <Typography className={classes.sectionHeading} align="center" variant="h4" component="h2">
-          Be in Top 1% Coder
-        </Typography>
-        <Typography
-          className={classes.descriptionPrimary}
-          align="center"
-          variant="h4"
-          component="h2"
-        >
-          Crack Big MNC And Product Based Startups
-        </Typography>
-        <Typography
-          className={classes.descriptionPrimary}
-          align="center"
-          variant="h4"
-          component="h2"
-        >
-          With This Bundles
-        </Typography>
-        <Grid container justify="center" alignItems="stretch" className={classes.ctaCardsWrapper}>
-          <CtaCard href="https://afteracademy.com" action="Buy This Pack Now At &#8377; 199" />
-        </Grid>
-        <Grid
-          container
-          spacing={3}
-          justify="center"
-          alignItems="center"
-          className={classes.cardWrapper}
-        >
-          <Grid item xs={12} sm={12} md={5}>
-            <Grid container justify="center">
-              <Grid item>
-                <BundleCard
-                  imgUrl={reactIconLogo}
-                  href="https://afteracademy.com"
-                  title="PROVEN FRONTEND GUIDE TO CRACK MNC INTERVIEWS"
-                  action="BUY THIS PACK NOW AT &#8377; 199"
-                />
+    <>
+      <Grid className={classes.aboutUsSection} container justify="center" alignItems="center">
+        <Grid item xs={12} sm={12} md={12} className={classes.wrapper}>
+          <Typography className={classes.sectionHeading} align="center" variant="h4" component="h2">
+            Be in Top 1% Coder
+          </Typography>
+          <Typography
+            className={classes.descriptionPrimary}
+            align="center"
+            variant="h4"
+            component="h2"
+          >
+            Crack Big MNC And Product Based Startups
+          </Typography>
+          <Typography
+            className={classes.descriptionPrimary}
+            align="center"
+            variant="h4"
+            component="h2"
+          >
+            With This Bundles
+          </Typography>
+          <Grid container justify="center" alignItems="stretch" className={classes.ctaCardsWrapper}>
+            <CtaCard onClick={handleBuyClick} action="Buy This Pack Now At &#8377; 199" />
+          </Grid>
+          <Grid
+            container
+            spacing={3}
+            justify="center"
+            alignItems="center"
+            className={classes.cardWrapper}
+          >
+            <Grid item xs={12} sm={12} md={5}>
+              <Grid container justify="center">
+                <Grid item>
+                  <BundleCard
+                    imgUrl={reactIconLogo}
+                    href="https://afteracademy.com"
+                    title="PROVEN FRONTEND GUIDE TO CRACK MNC INTERVIEWS"
+                    action="BUY THIS PACK NOW AT &#8377; 199"
+                  />
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12} sm={12} md={5}>
-            <Grid container justify="center">
-              <Grid item>
-                <GetJobCard
-                  imgUrl={workIcon}
-                  href="https://afteracademy.com"
-                  title="GET YOUR DREAM TECH JOB"
-                  action="Apply Now"
-                />
+            <Grid item xs={12} sm={12} md={5}>
+              <Grid container justify="center">
+                <Grid item>
+                  <GetJobCard
+                    imgUrl={workIcon}
+                    href="https://afteracademy.com"
+                    title="GET YOUR DREAM TECH JOB"
+                    action="Apply Now"
+                  />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+      <AuthDialog open={openAuthDialog} onClose={() => setOpenAuthDialog(false)} />
+    </>
   );
 };
 
-const CtaCard = ({ href, action = 'Learn More' }: { href: string; action?: string }) => {
+const CtaCard = ({
+  href,
+  action = 'Learn More',
+  onClick,
+}: {
+  href?: string;
+  action?: string;
+  onClick?: any;
+}) => {
   const classes = useStyles();
   return (
     <Card className={classes.ctaCard} raised={true}>
@@ -102,6 +128,7 @@ const CtaCard = ({ href, action = 'Learn More' }: { href: string; action?: strin
         size="large"
         color="primary"
         href={href}
+        onClick={onClick}
       >
         {action}
       </Button>

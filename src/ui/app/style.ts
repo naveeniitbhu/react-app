@@ -10,6 +10,7 @@ const useStyles = makeStyles(({}: Theme) => ({
   content: {
     marginTop: 60,
     minHeight: '62vh',
+    display:'flex',
   },
 }));
 

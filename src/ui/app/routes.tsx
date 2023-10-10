@@ -7,6 +7,7 @@ import Landing from '@ui/landing';
 import NotFound from '@ui/notfound';
 import BlogList from '@ui/bloglist';
 import BlogPage from '@ui/blogpage';
+import PaymentsPage from '@ui/payments';
 import WriterMyBlogs from '@ui/writer/myblogs';
 import WritingPad from '@ui/writer/writingpad';
 import EditorBlogs from '@ui/editor/blogs';
@@ -23,6 +24,7 @@ export default function Routes(): ReactElement {
       <Route exact path="/" component={Landing} />
       <Route exact path="/blogs" component={BlogList} />
       <Route exact path="/blog/:endpoint" component={BlogPage} />
+      <Route exact path="/payments" component={PaymentsPage} />
       {<Route exact path="/404" component={NotFound} />}
 
       {/* PRIVATE CONTENTS */}
